@@ -10,7 +10,7 @@ class PresentException:
 labo = {}
 
 labo['Milo'] = 301
-labo['Lucas'] = 302
+labo['Lucas'] = 310
 labo['Elisa'] = 303
 print(labo)
 
@@ -19,7 +19,7 @@ def enregistrer_arrivee(nom, bureau):
         raise PresentException(f"{nom} est déjà présent dans le laboratoire.")          #  un raise pour lever une exception du prenom qui existe déjà
     labo[nom] = bureau
 
-enregistrer_arrivee('Milo', 304)
+enregistrer_arrivee('Mel', 304)
 assert labo['Mel'] == 304
 
 def enregistrer_depart (nom):
@@ -64,3 +64,18 @@ def liste_personnel():
      print(list(labo.items()))
 
 liste_personnel()
+
+def liste_bureau(labo):
+    bureaux = {}
+    for nom, bureau in labo.items():
+        if bureau not in bureaux:
+            bureaux[bureau] = []
+        bureaux[bureau].append(nom)
+    return list(bureaux.items())
+
+bureaux = liste_bureau(labo)
+print(bureaux)
+for bureau, noms in bureaux:
+    print(f"{bureau}:")
+    for nom in noms:
+        print(f"- {nom}")

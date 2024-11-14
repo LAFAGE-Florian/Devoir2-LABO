@@ -6,14 +6,14 @@ class AbsentException:
 class PresentException: 
     pass
 
-def nouveau_labo():
+
+def laboratoire():
     return {}
 
-def enregistrer_arrivee(labo, nom, bureau):
+def enregistrer_arrivee(labo, nom, bureau : int):
     if nom in labo: 
         raise PresentException(f"{nom} est déjà présent dans le laboratoire.")          #  un raise pour lever une exception du prenom qui existe déjà
     labo[nom] = bureau
-    return labo(nom,bureau)
 
 
 def enregistrer_depart(labo, nom):
@@ -46,5 +46,13 @@ def obtenir_bureau(labo, nom):
 
 def liste_personnel(labo):
     return list(labo.items())
+
+def liste_bureau(labo):
+    bureaux = {}
+    for nom, bureau in labo.items():
+        if bureau not in bureaux:
+            bureaux[bureau] = []
+        bureaux[bureau].append(nom)
+    return list(bureaux.items())
 
    
