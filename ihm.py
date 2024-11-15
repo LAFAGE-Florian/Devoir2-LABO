@@ -85,10 +85,10 @@ def traiter_choix(choix, labo):
                 print(f"{nom} - bureau : {bureau}")
         elif choix == '8':
             bureaux = liste_bureau(labo)
-            for bureau, noms in bureaux:
-                print(f'Bureaux {bureau}:')
+            for bureau, noms in bureaux.items():
+                print(f'Bureaux : {bureau}:')
                 for nom in noms:
-                    print(f'- {nom}')
+                    print(f"- {nom}")
         elif choix == '0':
             print('Au revoir...')
         else: 

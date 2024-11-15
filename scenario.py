@@ -1,4 +1,4 @@
-# scenario des donctions
+# scenario des fonctions
 class LaboException(Exception):
     '''Généralise toute les exceptions du labo.'''
     pass
@@ -9,10 +9,6 @@ class PresentException:
 
 labo = {}
 
-labo['Milo'] = 301
-labo['Lucas'] = 310
-labo['Elisa'] = 303
-print(labo)
 
 def enregistrer_arrivee(nom, bureau):
     if nom in labo: 
@@ -20,6 +16,9 @@ def enregistrer_arrivee(nom, bureau):
     labo[nom] = bureau
 
 enregistrer_arrivee('Mel', 304)
+enregistrer_arrivee('Milo', 301)
+enregistrer_arrivee('Lucas', 310)
+enregistrer_arrivee('Elisa', 303)
 assert labo['Mel'] == 304
 
 def enregistrer_depart (nom):
@@ -71,11 +70,11 @@ def liste_bureau(labo):
         if bureau not in bureaux:
             bureaux[bureau] = []
         bureaux[bureau].append(nom)
-    return list(bureaux.items())
+    return bureaux
 
 bureaux = liste_bureau(labo)
 print(bureaux)
-for bureau, noms in bureaux:
-    print(f"{bureau}:")
+for bureau, noms in bureaux.items():
+    print(f'Bureaux : {bureau}:')
     for nom in noms:
         print(f"- {nom}")

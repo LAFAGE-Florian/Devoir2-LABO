@@ -53,6 +53,6 @@ def liste_bureau(labo):
         if bureau not in bureaux:
             bureaux[bureau] = []
         bureaux[bureau].append(nom)
-    return list(bureaux.items())
+    return bureaux
 
    
